@@ -1,8 +1,8 @@
 FROM ubuntu:18.04
-COPY /tmp/requirements.txt /tmp/
+ADD /tmp/requirements.txt /tmp/
 RUN DEBIAN_FRONTEND=noniteractive apt-get update && apt-get install -y python-all python-pip
 WORKDIR /tmp/
 RUN python-pip install -qr requirements.txt
-COPY /tmp/app.py /opt/webapps
+ADD /tmp/app.py /opt/webapps
 EXPOSE 5000
 CMD python app.py

@@ -10,7 +10,7 @@ services:
     - type: volume
       source: war-volume
       target: /tmp/war
-    command: cp /tmp/boxfuse-sample-java-war-hello/target/*.war /tmp/war/
+    command: cp /tmp/boxfuse-sample-java-war-hello/target/hello-1.0/*.war /tmp/war/
   
 
   tomcat:

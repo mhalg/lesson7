@@ -1,6 +1,6 @@
 FROM ubuntu:20.04
 RUN apt-get update && apt-get install -y tomcat9
 WORKDIR /tmp/war-src
-RUN cp *.war /var/lib/tomcat9/webapps/
+#RUN cp *.war /var/lib/tomcat9/webapps/
 #EXPOSE 8080
 CMD export CATALINA_HOME=/usr/share/tomcat9 && export CATALINA_BASE=/var/lib/tomcat9 && export CATALINA_TMPDIR=/tmp && export JAVA_OPTS="-Djava.awt.headless=true" && cd $CATALINA_BASE && exec /usr/share/tomcat9/bin/catalina.sh run

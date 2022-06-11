@@ -1,0 +1,6 @@
+FROM alpine:3.16.0
+RUN apt-get update && apt-get install -y default-jdk maven git
+RUN cd /tmp && git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
+WORKDIR /tmp/boxfuse-sample-java-war-hello 
+RUN mvn package .
+CMD copy  /tmp/boxfuse-sample-java-war-hello/target/*.war /tmp/war/

@@ -17,6 +17,8 @@ tomcat:
     - type: volume
       source: war-volume
       target: /tmp/war-src
+  depends-on: 
+    - mvn:
 
 volumes:
   war-volume:  

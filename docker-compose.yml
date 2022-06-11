@@ -20,5 +20,6 @@ services:
       - type: volume
         source: war-volume
         target: /tmp/war-src
+    command: cp /tmp/war-src/*.war /var/lib/tomcat9/webapps/
     depends_on: 
       - mvn

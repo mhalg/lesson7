@@ -10,17 +10,17 @@ services:
     - type: volume
       source: war-volume
       target: /tmp/war
-    command: cp /tmp/boxfuse-sample-java-war-hello/target/hello-1.0/*.war /tmp/war/
+    command: cp /tmp/boxfuse-sample-java-war-hello/target/\*.war /tmp/war/
   
 
   tomcat:
-    build: ./tomcat_server/
+    image: nirmata/tomcat9-alpine-jre12-openjdk
     ports:
       - "80:8080"
     volumes:
       - type: volume
         source: war-volume
         target: /tmp/war-src
-    command: cp /tmp/war-src/*.war /var/lib/tomcat9/webapps/
+    command: cp /tmp/war-src/\*.war /usr/local/tomcat/webapps/
     depends_on: 
       - mvn
